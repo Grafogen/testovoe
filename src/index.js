@@ -18,6 +18,7 @@ function clear() {
 	finish = false;
 	number.textContent = '0';
 }
+
 ac.addEventListener('click', function () {
 	clear();
 });
@@ -46,6 +47,7 @@ function keyDownHandler(key) {
 	// если нажата + - / X % +/-
 	if (znaki.includes(key)) {
 		if (a !== '' && b !== '' && znak !== '' && !finish) {
+			console.log('tut');
 			switch (znak) {
 				case '+':
 					a = +a + +b;
@@ -70,6 +72,7 @@ function keyDownHandler(key) {
 		}
 		b = '';
 		znak = key;
+		finish = false;
 		number.textContent = a + znak;
 		console.log(a, b, znak, finish);
 		return;
