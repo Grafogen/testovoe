@@ -137,3 +137,32 @@ document.addEventListener('keydown', function (evt) {
 	}
 	keyDownHandler(evt.key);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+	const switchButtons = document.querySelectorAll('.switch-btn');
+
+	switchButtons.forEach(function (button) {
+		button.addEventListener('click', function () {
+			this.classList.toggle('switch-on');
+
+			if (this.classList.contains('switch-on')) {
+				this.dispatchEvent(new Event('on.switch'));
+			} else {
+				this.dispatchEvent(new Event('off.switch'));
+			}
+		});
+
+		button.addEventListener('on.switch', function () {
+			document.body.classList.toggle('dark-theme');
+			console.log('ttt');
+		});
+
+		button.addEventListener('off.switch', function () {
+			const targetId = this.getAttribute('data-id');
+			const targetElement = document.querySelector(targetId);
+			if (targetElement) {
+				targetElement.classList.add('bl-hide');
+			}
+		});
+	});
+});

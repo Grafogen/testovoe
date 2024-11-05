@@ -1,14 +1,14 @@
 .calc {
-	margin: 100px auto;
-	width: 268px;
-	height: 447px;
-	border: 1px solid rgb(168, 168, 168);
-	border-radius: 10px;
-	background: rgb(82, 82, 83);
-	font-weight: 800;
-	box-shadow:
-		rgba(0, 0, 0, 0.3) 0 19px 38px,
-		rgba(0, 0, 0, 0.22) 0 15px 12px;
+	/*margin: 100px auto;*/
+	/*width: 268px;*/
+	/*height: 447px;*/
+	/*border: 1px solid rgb(168, 168, 168);*/
+	/*border-radius: 10px;*/
+	/*background: rgb(82, 82, 83);*/
+	/*font-weight: 800;*/
+	/*box-shadow:*/
+	/*	rgba(0, 0, 0, 0.3) 0 19px 38px,*/
+	/*	rgba(0, 0, 0, 0.22) 0 15px 12px;*/
 }
 
 .calc__screen {
@@ -24,11 +24,10 @@
 	font-style: normal;
 	font-weight: 800;
 	font-size: 55px;
-	line-height: 44px;
+	line-height: 0;
 	display: flex;
 	align-items: center;
 	text-align: right;
-	color: #ebebec;
 }
 
 .container {
@@ -58,6 +57,11 @@
 	cursor: pointer;
 	user-select: none;
 }
+body.darktheme .btn {
+	background: rgb(155 153 150);
+	color: #181817;
+	border: 1px solid #cbc9c5;
+}
 
 .btn_zero {
 	grid-area: btn_zero;
@@ -73,11 +77,17 @@
 }
 
 .btn_grey {
-	background-color: rgb(99, 99, 100);
+	background-color: rgb(99, 99, 99);
+}
+body.darktheme .btn_grey {
+	background: rgb(184, 182, 178);
 }
 
 .btn_orange {
 	background-color: rgb(253, 158, 11);
+}
+body.darktheme .btn_orange {
+	background: rgb(155, 100, 54);
 }
 
 .btn_cray1 {
@@ -86,4 +96,59 @@
 
 .btn_cray2 {
 	border-radius: 0 0 6px 0;
+}
+.switch-btn {
+	display: inline-block;
+	width: 72px; /* ширина */
+	height: 38px; /* высота */
+	border-radius: 19px; /* радиус скругления */
+	background: #bfbfbf; /* цвет фона */
+	z-index: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition-duration: 300ms; /* анимация */
+}
+.switch-btn::after {
+	content: '';
+	height: 32px; /* высота кнопки */
+	width: 32px; /* ширина кнопки */
+	border-radius: 17px;
+	background: #fff; /* цвет кнопки */
+	top: 3px; /* положение кнопки по вертикали относительно основы */
+	left: 3px; /* положение кнопки по горизонтали относительно основы */
+	transition-duration: 300ms; /* анимация */
+	position: absolute;
+	z-index: 1;
+}
+.switch-on {
+	background: #118c4e;
+}
+.switch-on::after {
+	left: 37px;
+}
+
+body {
+	margin: 100px auto;
+	width: 268px;
+	height: 447px;
+	color: azure;
+	border: 1px solid rgb(168, 168, 168);
+	border-radius: 10px;
+	background: rgb(82, 82, 82);
+	font-weight: 800;
+	box-shadow:
+		rgba(0, 0, 0, 0.3) 0 19px 38px,
+		rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+
+body.darktheme {
+	border: 1px solid rgb(168, 168, 168);
+	background: rgb(205, 203, 199);
+	color: #181817;
+	box-shadow:
+		rgba(0, 0, 0, 0.3) 0 19px 38px,
+		rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
