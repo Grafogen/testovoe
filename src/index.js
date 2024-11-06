@@ -153,9 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		button.addEventListener('on.switch', function () {
-			document.body.classList.toggle('dark-theme');
+			document.body.classList.add('dark-theme');
 			updateCalculatorStyles('darktheme');
-			console.log('ttt');
 		});
 
 		button.addEventListener('off.switch', function () {
@@ -171,17 +170,18 @@ function updateCalculatorStyles(theme) {
 		calculator.style.backgroundColor = '#cdcbc7'; // Пример темного фона
 		calculator.style.color = '#181817'; // Пример светлого текста
 		calculator.style.border = '1px solid #a8a8a8';
-		calculator.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0 19px 38px rgba(0, 0, 0, 0.22) 0 15px 12px';
-		const buttons = calculator.querySelectorAll('.button');
+		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
+		console.log(buttons);
 		buttons.forEach((button) => {
-			if (button.classList.contains('btn')) {
-				button.style.backgroundColor = '#9b9996'; // Пример фона для специальных кнопок// Пример цвета текста для специальных кнопок
-				button.style.border = '1px solid #cbc9c5';
-			} else if (button.classList.contains('btn_orange')) {
-				button.style.backgroundColor = '#9b6436';
-			} else if (button.classList.contains('btn_grey')) {
+			if (button.classList.contains('btn_grey')) {
 				button.style.backgroundColor = '#b8b6b2';
 				button.style.color = '#181817';
+			} else if (button.classList.contains('btn_orange')) {
+				button.style.backgroundColor = '#9b6436';
+			} else if (button.classList.contains('btn')) {
+				button.style.backgroundColor = '#9b9996'; // Пример фона для специальных кнопок// Пример цвета текста для специальных кнопок
+				button.style.border = '1px solid #cbc9c5';
+				console.log('f');
 			}
 		});
 	} else {
@@ -189,14 +189,14 @@ function updateCalculatorStyles(theme) {
 		calculator.style.color = '#f0ffff'; // Пример светлого текста
 		const buttons = calculator.querySelectorAll('.button');
 		buttons.forEach((button) => {
-			if (button.classList.contains('btn')) {
+			if (button.classList.contains('btn_grey')) {
+				button.style.backgroundColor = '#636363';
+			} else if (button.classList.contains('btn_orange')) {
+				button.style.backgroundColor = '#fd9e0b'; // Пример фона для обычных кнопоk
+			} else if (button.classList.contains('btn')) {
 				button.style.backgroundColor = '#7c7c7d'; // Пример фона для специальных кнопок
 				button.style.color = '#e9e9ea'; // Пример цвета текста для специальных кнопок
 				button.style.border = '1px solid #525253';
-			} else if (button.classList.contains('btn_orange')) {
-				button.style.backgroundColor = '#fd9e0b'; // Пример фона для обычных кнопоk
-			} else if (button.classList.contains('btn_grey')) {
-				button.style.backgroundColor = '#636363';
 			}
 		});
 	}
