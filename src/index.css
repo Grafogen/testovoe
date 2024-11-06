@@ -57,11 +57,6 @@
 	cursor: pointer;
 	user-select: none;
 }
-body.darktheme .btn {
-	background: rgb(155 153 150);
-	color: #181817;
-	border: 1px solid #cbc9c5;
-}
 
 .btn_zero {
 	grid-area: btn_zero;
@@ -79,15 +74,8 @@ body.darktheme .btn {
 .btn_grey {
 	background-color: rgb(99, 99, 99);
 }
-body.darktheme .btn_grey {
-	background: rgb(184, 182, 178);
-}
-
 .btn_orange {
 	background-color: rgb(253, 158, 11);
-}
-body.darktheme .btn_orange {
-	background: rgb(155, 100, 54);
 }
 
 .btn_cray1 {
@@ -144,6 +132,9 @@ body {
 		rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
 
+body.darktheme .btn_orange {
+	background: rgb(155, 100, 54);
+}
 body.darktheme {
 	border: 1px solid rgb(168, 168, 168);
 	background: rgb(205, 203, 199);
@@ -151,4 +142,7 @@ body.darktheme {
 	box-shadow:
 		rgba(0, 0, 0, 0.3) 0 19px 38px,
 		rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+body.darktheme .btn_grey {
+	background: rgb(184, 182, 178);
 }
