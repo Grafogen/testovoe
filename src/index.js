@@ -173,34 +173,32 @@ function updateCalculatorStyles(theme) {
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
 		console.log(buttons);
 		buttons.forEach((button) => {
+			button.style.border = '1px solid #cbc9c5';
+			button.style.color = '#181817';
 			if (button.classList.contains('btn_grey')) {
 				button.style.backgroundColor = '#b8b6b2';
-				button.style.color = '#181817';
 			} else if (button.classList.contains('btn_orange')) {
 				button.style.backgroundColor = '#9b6436';
-				button.style.color = '#181817';
 			} else if (button.classList.contains('btn')) {
 				button.style.backgroundColor = '#9b9996';
-				button.style.border = '1px solid #cbc9c5';
-				button.style.color = '#181817';
 				console.log('f');
 			}
 		});
 	} else {
 		calculator.style.backgroundColor = '#525252';
 		calculator.style.color = '#f0ffff';
+
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
+
 		buttons.forEach((button) => {
+			button.style.border = '1px solid #525253';
+			button.style.color = '#F0FFFFFF';
 			if (button.classList.contains('btn_grey')) {
 				button.style.backgroundColor = '#636363';
-				button.style.color = '#F0FFFFFF';
 			} else if (button.classList.contains('btn_orange')) {
 				button.style.backgroundColor = '#fd9e0b';
-				button.style.color = '#F0FFFFFF';
 			} else if (button.classList.contains('btn')) {
 				button.style.backgroundColor = '#7c7c7d';
-				button.style.color = '#F0FFFFFF';
-				button.style.border = '1px solid #525253';
 			}
 		});
 	}
