@@ -33,23 +33,10 @@ body {
 	font-style: normal;
 	font-weight: 800;
 	font-size: 55px;
-	line-height: 1;
+	line-height: 0;
 	display: flex;
 	align-items: center;
 	text-align: right;
-	overflow: hidden;
-}
-
-@media (max-width: 200px) {
-	.calc__screen-number {
-		font-size: 16px;
-	}
-}
-
-@media (max-width: 150px) {
-	.calc__screen-number {
-		font-size: 12px;
-	}
 }
 
 .container {
