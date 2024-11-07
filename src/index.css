@@ -1,14 +1,23 @@
 .calc {
 	/*margin: 100px auto;*/
-	/*width: 268px;*/
-	/*height: 447px;*/
-	/*border: 1px solid rgb(168, 168, 168);*/
-	/*border-radius: 10px;*/
-	/*background: rgb(82, 82, 83);*/
-	/*font-weight: 800;*/
-	/*box-shadow:*/
-	/*	rgba(0, 0, 0, 0.3) 0 19px 38px,*/
-	/*	rgba(0, 0, 0, 0.22) 0 15px 12px;*/
+	width: 269px;
+	height: 449px;
+	border-radius: 10px;
+	background: rgb(82, 82, 83);
+	border: 1px solid rgb(123, 123, 124);
+	font-weight: 800;
+	box-shadow:
+		rgba(0, 0, 0, 0.3) 0 19px 38px,
+		rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+
+body {
+	margin: 100px auto;
+	width: 268px;
+	height: 449px;
+	color: azure;
+	border-radius: 10px;
+	font-weight: 800;
 }
 
 .calc__screen {
@@ -24,10 +33,23 @@
 	font-style: normal;
 	font-weight: 800;
 	font-size: 55px;
-	line-height: 0;
+	line-height: 1;
 	display: flex;
 	align-items: center;
 	text-align: right;
+	overflow: hidden;
+}
+
+@media (max-width: 200px) {
+	.calc__screen-number {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 150px) {
+	.calc__screen-number {
+		font-size: 12px;
+	}
 }
 
 .container {
@@ -116,20 +138,6 @@
 }
 .switch-on::after {
 	left: 24px;
-}
-
-body {
-	margin: 100px auto;
-	width: 268px;
-	height: 449px;
-	color: azure;
-	border: 1px solid rgb(168, 168, 168);
-	border-radius: 10px;
-	background: rgb(82, 82, 82);
-	font-weight: 800;
-	box-shadow:
-		rgba(0, 0, 0, 0.3) 0 19px 38px,
-		rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
 
 body.darktheme .btn_orange {

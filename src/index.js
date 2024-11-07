@@ -40,11 +40,10 @@ function keyDownHandler(key) {
 			b += key;
 			number.textContent = b;
 		}
-		console.log(a, b, znak, finish);
 		return;
 	}
 
-	// если нажата + - / X % +/-
+	// если нажата + - / X +/-
 	if (znaki.includes(key)) {
 		if (a !== '' && b !== '' && znak !== '' && !finish) {
 			console.log('tut');
@@ -70,6 +69,11 @@ function keyDownHandler(key) {
 					break;
 			}
 		}
+		if (key === '+/-') {
+			a = -a;
+			number.textContent = a;
+			return;
+		}
 		b = '';
 		znak = key;
 		finish = false;
@@ -78,7 +82,7 @@ function keyDownHandler(key) {
 		return;
 	}
 
-	if (key === '=' || key === 'Enter') {
+	if (key === '=') {
 		if (b === '') b = a;
 		switch (znak) {
 			case '+':
@@ -130,14 +134,6 @@ container.addEventListener('click', function (evt) {
 	keyDownHandler(evt.target.textContent);
 });
 
-document.addEventListener('keydown', function (evt) {
-	console.log(`code=${evt.key}`);
-	if (evt.key === 'Escape') {
-		clear();
-	}
-	keyDownHandler(evt.key);
-});
-
 document.addEventListener('DOMContentLoaded', function () {
 	const switchButtons = document.querySelectorAll('.switch-btn');
 
@@ -165,11 +161,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 function updateCalculatorStyles(theme) {
 	const calculator = document.getElementById('calculator'); // Предполагаем, что у калькулятора есть id 'calculator'
-
+	const tushka = document.getElementById('tushka');
 	if (theme === 'darktheme') {
-		calculator.style.backgroundColor = '#cdcbc7'; // Пример темного фона
-		calculator.style.color = '#181817'; // Пример светлого текста
-		calculator.style.border = '1px solid #a8a8a8';
+		calculator.style.backgroundColor = '#3c3636';
+		calculator.style.color = '#181817';
+		// calculator.style.border = '1px solid #a8a8a8';
+		tushka.style.backgroundColor = '#cbc9c5';
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
 		console.log(buttons);
 		buttons.forEach((button) => {
@@ -185,9 +182,10 @@ function updateCalculatorStyles(theme) {
 			}
 		});
 	} else {
-		calculator.style.backgroundColor = '#525252';
+		calculator.style.backgroundColor = '#fdfdfd';
 		calculator.style.color = '#f0ffff';
-
+		// calculator.style.border = '1px solid #a8a8a8';
+		tushka.style.backgroundColor = '#525252';
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
 
 		buttons.forEach((button) => {
