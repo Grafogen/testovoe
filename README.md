@@ -10,6 +10,12 @@
 3- npm start
 ```
 
+# Structure
+
+```
+in the src folder you can find 3 files containing all the functionality.
+```
+
 # Features of the calculator
 
 ```
