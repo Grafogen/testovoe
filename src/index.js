@@ -1,4 +1,6 @@
 import './index.css'; //нужен для сборки
+
+//объявление рабочих переменных
 let a = '';
 let b = '';
 let znak = '';
@@ -11,6 +13,7 @@ const number = document.querySelector('.calc__screen-number');
 const ac = document.querySelector('.btn_ac');
 const container = document.querySelector('.container');
 
+//зачистка вывода
 function clear() {
 	a = '';
 	b = '';
@@ -19,10 +22,12 @@ function clear() {
 	number.value = '0';
 }
 
+//обработчик на кнопку зачистки
 ac.addEventListener('click', function () {
 	clear();
 });
 
+//обработчик нажатий на клавиши
 function keyDownHandler(key) {
 	// если нажата 0-9 или .
 	if (numbers.includes(key)) {
@@ -46,7 +51,6 @@ function keyDownHandler(key) {
 	// если нажата + - / X +/-
 	if (znaki.includes(key)) {
 		if (a !== '' && b !== '' && znak !== '' && !finish) {
-			console.log('tut');
 			switch (znak) {
 				case '+':
 					a = +a + +b;
@@ -81,7 +85,6 @@ function keyDownHandler(key) {
 		console.log(a, b, znak, finish);
 		return;
 	}
-
 	if (key === '=') {
 		if (b === '') b = a;
 		switch (znak) {
@@ -113,7 +116,6 @@ function keyDownHandler(key) {
 		}
 		finish = true;
 		number.value = a;
-		console.log(a, b, znak, finish);
 	} else if (key === '%') {
 		if (b === '') {
 			a = a / 100;
@@ -125,15 +127,16 @@ function keyDownHandler(key) {
 	}
 }
 
-container.addEventListener('click', function (evt) {
+//обработка кликов не туда
+container.addEventListener('click', function (e) {
 	// кнопка не нажата
-	if (!evt.target.classList.contains('btn')) return;
+	if (!e.target.classList.contains('btn')) return;
 	// нажата кнопка AC
-	if (evt.target.classList.contains('btn_ac')) return;
-
-	keyDownHandler(evt.target.textContent);
+	if (e.target.classList.contains('btn_ac')) return;
+	keyDownHandler(e.target.textContent);
 });
 
+// функция для работы свитчера темы
 document.addEventListener('DOMContentLoaded', function () {
 	const switchButtons = document.querySelectorAll('.switch-btn');
 
@@ -159,16 +162,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 });
+
+//функция смены стилей для темы
 function updateCalculatorStyles(theme) {
-	const calculator = document.getElementById('calculator'); // Предполагаем, что у калькулятора есть id 'calculator'
+	const calculator = document.getElementById('calculator');
 	const tushka = document.getElementById('tushka');
+	const calcNumber = document.getElementById('calcNumber');
+
 	if (theme === 'darktheme') {
 		calculator.style.backgroundColor = '#3c3636';
 		calculator.style.color = '#181817';
-		// calculator.style.border = '1px solid #a8a8a8';
 		tushka.style.backgroundColor = '#cbc9c5';
+		calcNumber.style.color = '#181817';
+
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
-		console.log(buttons);
+
 		buttons.forEach((button) => {
 			button.style.border = '1px solid #cbc9c5';
 			button.style.color = '#181817';
@@ -178,14 +186,14 @@ function updateCalculatorStyles(theme) {
 				button.style.backgroundColor = '#9b6436';
 			} else if (button.classList.contains('btn')) {
 				button.style.backgroundColor = '#9b9996';
-				console.log('f');
 			}
 		});
 	} else {
 		calculator.style.backgroundColor = '#fdfdfd';
 		calculator.style.color = '#f0ffff';
-		// calculator.style.border = '1px solid #a8a8a8';
+		calcNumber.style.color = '#eefdfd';
 		tushka.style.backgroundColor = '#525252';
+
 		const buttons = calculator.querySelectorAll('.btn, .btn_grey, .btn_orange');
 
 		buttons.forEach((button) => {

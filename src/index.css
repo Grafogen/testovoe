@@ -1,5 +1,5 @@
+/*бызовые стили для тушки калькулятора*/
 .calc {
-	/*margin: 100px auto;*/
 	width: 269px;
 	height: 449px;
 	border-radius: 10px;
@@ -10,7 +10,7 @@
 		rgba(0, 0, 0, 0.3) 0 19px 38px,
 		rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
-
+/*размещение тушки */
 body {
 	margin: 100px auto;
 	width: 268px;
@@ -19,7 +19,7 @@ body {
 	border-radius: 10px;
 	font-weight: 800;
 }
-
+/*размещение вывода*/
 .calc__screen {
 	width: 257px;
 	height: 114px;
@@ -27,28 +27,28 @@ body {
 	justify-items: end;
 	align-items: end;
 }
-
+/*стили для вывода*/
 .calc__screen-number {
 	height: 42px;
 	border-top: 1px dotted #8096a4;
 	border-bottom: 1px dotted #8096a4;
 	box-sizing: border-box;
 	text-align: right;
-	padding: 0 20px;
+	padding: 0 10px;
+	margin-bottom: 10px;
 	line-height: 40px;
 	font-size: 38px;
 	font-weight: 300;
 }
-
+/*ещё чутка их*/
 .calc__screen-number {
 	outline: none;
 	border: none;
-	margin: 0;
 	width: 100%;
 	background: none;
 	color: #fff;
 }
-
+/*разметка кнопок*/
 .container {
 	display: grid;
 	grid-template-areas:
@@ -61,7 +61,7 @@ body {
 	color: #181818;
 	justify-items: center;
 }
-
+/*базовый стиль кнопки*/
 .btn {
 	width: 65px;
 	height: 65px;
@@ -76,34 +76,34 @@ body {
 	cursor: pointer;
 	user-select: none;
 }
-
+/*отдельный стиль для нуля так как 2 кнопки занимает*/
 .btn_zero {
 	grid-area: btn_zero;
 	width: 132px;
 }
-
+/*чутка для стилей для ховера на кнопки*/
 .btn:hover {
 	filter: brightness(110%);
 }
-
+/*чутка для стилей для нажатия на кнопки*/
 .btn:active {
 	filter: brightness(90%);
 }
-
+/*отдельные стили для отдельных кнопок в соответствии с дизайном*/
 .btn_grey {
 	background-color: rgb(99, 99, 99);
 }
 .btn_orange {
 	background-color: rgb(253, 158, 11);
 }
-
+/*стили для кнопок по краям*/
 .btn_cray1 {
 	border-radius: 0 0 0 6px;
 }
-
 .btn_cray2 {
 	border-radius: 0 0 6px 0;
 }
+/*стили для свитчера*/
 .switch-btn {
 	display: inline-block;
 	width: 52px;
@@ -111,7 +111,7 @@ body {
 	border-radius: 14px;
 	background: #cdcbc7;
 	z-index: 0;
-	margin-top: 5px;
+	margin-bottom: 25px;
 	margin-right: 200px;
 	border: none;
 	cursor: pointer;
@@ -135,19 +135,4 @@ body {
 }
 .switch-on::after {
 	left: 24px;
-}
-
-body.darktheme .btn_orange {
-	background: rgb(155, 100, 54);
-}
-body.darktheme {
-	border: 1px solid rgb(168, 168, 168);
-	background: rgb(205, 203, 199);
-	color: #181817;
-	box-shadow:
-		rgba(0, 0, 0, 0.3) 0 19px 38px,
-		rgba(0, 0, 0, 0.22) 0 15px 12px;
-}
-body.darktheme .btn_grey {
-	background: rgb(184, 182, 178);
 }
