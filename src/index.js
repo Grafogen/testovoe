@@ -16,7 +16,7 @@ function clear() {
 	b = '';
 	znak = '';
 	finish = false;
-	number.textContent = '0';
+	number.value = '0';
 }
 
 ac.addEventListener('click', function () {
@@ -28,17 +28,17 @@ function keyDownHandler(key) {
 	if (numbers.includes(key)) {
 		if (b === '' && znak === '') {
 			a += key;
-			number.textContent = a;
+			number.value = a;
 		} else if (a !== '' && b !== '' && finish) {
 			a = '';
 			b = '';
 			znak = '';
 			a += key;
 			finish = false;
-			number.textContent = a;
+			number.value = a;
 		} else {
 			b += key;
-			number.textContent = b;
+			number.value = b;
 		}
 		return;
 	}
@@ -59,7 +59,7 @@ function keyDownHandler(key) {
 					break;
 				case '/':
 					if (b === '0') {
-						number.textContent = 'Ошибка';
+						number.value = 'Ошибка';
 						a = '';
 						b = '';
 						znak = '';
@@ -71,13 +71,13 @@ function keyDownHandler(key) {
 		}
 		if (key === '+/-') {
 			a = -a;
-			number.textContent = a;
+			number.value = a;
 			return;
 		}
 		b = '';
 		znak = key;
 		finish = false;
-		number.textContent = a + znak;
+		number.value = a + znak;
 		console.log(a, b, znak, finish);
 		return;
 	}
@@ -96,7 +96,7 @@ function keyDownHandler(key) {
 				break;
 			case '/':
 				if (b === '0') {
-					number.textContent = 'Ошибка';
+					number.value = 'Ошибка';
 					a = '';
 					b = '';
 					znak = '';
@@ -112,15 +112,15 @@ function keyDownHandler(key) {
 				break;
 		}
 		finish = true;
-		number.textContent = a;
+		number.value = a;
 		console.log(a, b, znak, finish);
 	} else if (key === '%') {
 		if (b === '') {
 			a = a / 100;
-			number.textContent = a;
+			number.value = a;
 		} else {
 			b = (a * b) / 100;
-			number.textContent = b;
+			number.value = b;
 		}
 	}
 }
